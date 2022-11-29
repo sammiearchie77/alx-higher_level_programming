@@ -1,14 +1,7 @@
 #!/usr/bin/python3
-
-
-def print_uniq_combos():
-    for i in range(10):
-        for j in range(i + 1, 10):
-            if i == 8 and j == 9:
-                print('{:d}{:d}'.format(i, j))
-            else:
-                print('{:d}{:d}'.format(i, j), end=', ')
-
-
-if __name__ == '__main__':
-    print_uniq_combos()
+number = 0
+while number <= 89:
+    if number % 10 == 0:
+        number += 1 + number // 10
+    print("{:02d}".format(number), end='\n' if number == 89 else ", ")
+    number += 1
