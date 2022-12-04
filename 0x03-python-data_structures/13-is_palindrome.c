@@ -1,69 +1,53 @@
-#include <stdlib.h>
 #include "lists.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
- * list_len - computes the length of the liked list..
- * @h: a pointer to the list to iterato to.
- * Return: the number of nodes
- */
-size_t list_len(const listint_t *h)
-{
-	const listint_t *tmp;
-	size_t i = 0;
+* is_palindrome - check is a linked list is palindrome
+* @head: head of the list
+* Return: 0 if not 1 if it is
+*/
 
-	tmp = h;
-	if (tmp)
-		tmp = h;
-	while (tmp)
-	{
-		i++;
-		tmp = tmp->next;
-	}
-	return (i);
-}
-
-/**
- * _chunk_ispal - Tests if a part of a list is palindrome.
- * @l: The list
- * @start: The start
- * @end: The end
- * Return: 1 if the substring s[start..end] is palindrome.
- *	   0 otherwise.
- */
-int _chunk_ispal(listint_t **l, int start, int end)
-{
-	if (start == end)
-		return (1);
-	if (l[start]->n != l[end]->n)
-		return (0);
-	if (start < end + 1)
-		return (_chunk_ispal(l, start + 1, end - 1));
-	return (1);
-}
-
-/**
- * is_palindrome - checks if a singly linked list is a palindrome
- * @head: The head of the list
- * Return: 1 if the list is a palindrome. 0 otherwise.
- */
 int is_palindrome(listint_t **head)
 {
-	int res = 1, i = 0, n;
-	listint_t **array_of_list;
-	listint_t *tmp;
+	listint_t *current = *head, *prev, *next, *left_head, *right_head;
+	int list_len = 0, i = 0, not_p = 0;
 
-	if (head && *head)
+	if (*head == NULL || head == NULL)
+		return (1);
+	while (current != NULL)
+		list_len++, current = current->next;
+	if (list_len == 1)
+		return (1);
+	current = *head;
+	for (i = 1; i <= list_len / 2 && current != NULL; i++)
 	{
-		n = list_len(*head);
-		array_of_list = malloc(n * sizeof(listint_t *));
-		tmp = *head;
-		while (tmp)
-		{
-			array_of_list[i++] = tmp;
-			tmp = tmp->next;
-		}
-		res = _chunk_ispal(array_of_list, 0, n - 1);
-		free(array_of_list);
+		next = current->next;
+		if (prev != NULL)
+			current->next = prev;
+		else
+			current->next = NULL;
+		prev = current, current = next;
 	}
-	return (res);
+	right_head = current, left_head = prev;
+	for (i = 1; i <= list_len / 2 && current != NULL; i++)
+	{
+		if (list_len % 2 != 0 && i == 1)
+			current = current->next;
+		if (current->n != prev->n)
+		{
+			not_p = 1;
+			break;
+		}
+		current = current->next, prev = prev->next;
+	}
+	current = left_head, prev = right_head;
+	for (i = 1; i <= list_len / 2 && current != NULL; i++)
+	{
+		next = current->next;
+		if (prev != NULL)
+			current->next = prev;
+		prev = current, current = next;
+	}
+	return (not_p == 1 ? 0 : 1);
 }
