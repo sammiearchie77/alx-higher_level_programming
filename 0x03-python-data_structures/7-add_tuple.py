@@ -6,7 +6,8 @@ def standardize_tuple(tup):
         return (0, 0)
     elif tup_len == 1:
         return (tup[0], 0)
-    else: return (tup[0], tup[1])
+    else:
+        return (tup[0], tup[1])
 
 def add_tuple(tuple_a=(), tuple_b=()):
     sum1 = 0
