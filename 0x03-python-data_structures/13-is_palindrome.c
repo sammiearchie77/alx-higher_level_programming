@@ -65,5 +65,5 @@ int is_palindrome(listint_t **head)
 		res = _chunk_ispal(array_of_list, 0, n - 1);
 		free(array_of_list);
 	}
-		return (res);
+	return (res);
 }
