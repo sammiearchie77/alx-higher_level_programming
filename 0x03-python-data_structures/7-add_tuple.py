@@ -16,5 +16,4 @@ def add_tuple(tuple_a=(), tuple_b=()):
     tup_b_st = standardize_tuple(tuple_b)
     sum1 = tup_a_st[0] + tup_b_st[0]
     sum2 = tup_a_st[1] + tup_b_st[1]
-
     return (sum1, sum2)
