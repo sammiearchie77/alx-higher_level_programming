@@ -3,7 +3,7 @@
 def roman_to_int(roman_string):
     # always check user input
     if roman_string is not None and type(roman_string) == str:
-        romam_dict = {
+        roman_dict = {
             'I': 1,
             'V': 5,
             'X': 10,
