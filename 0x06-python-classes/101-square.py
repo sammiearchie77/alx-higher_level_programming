@@ -39,7 +39,7 @@ class Square:
 
     @property
     def size(self):
-        """ 
+        """
         Args:
             size (`int`): The size of the ``Square``.
                 The default value is 0.
@@ -60,7 +60,7 @@ class Square:
 
     @property
     def position(self):
-        """ 
+        """
         Args:
             position (:obj: `tuple` of `int`): The position to start to
                 print the ``Square``.
