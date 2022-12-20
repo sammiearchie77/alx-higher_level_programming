@@ -9,7 +9,7 @@ class Square:
     Attributes:
         size (`int`): The size of the ``Square``.
     """
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         """Constructs a ``Square`` objet
         Args:
             size (`int`): The size of the ``Square``.
@@ -19,17 +19,27 @@ class Square:
             ValueError: If ``size`` < 0
         """
         self.size = size
+        self.position = position
+
+    def __str__(self):
+        res = ""
+        if self.size:
+            line = " " * self.position[0] + "#" * self.size
+            res = "\n" * self.position[1]
+            res += (line + "\n") * (self.size - 1)
+            res += line
+        return res
 
     def area(self):
         """Computes the area of the ``Square``.
         Returns:
             int: The area of the ``Square``.
         """
-        return self._Square__size ** 2
+        return self.size ** 2
 
     @property
     def size(self):
-        """
+        """ 
         Args:
             size (`int`): The size of the ``Square``.
                 The default value is 0.
@@ -48,12 +58,24 @@ class Square:
         else:
             self._Square__size = size
 
+    @property
+    def position(self):
+        """ 
+        Args:
+            position (:obj: `tuple` of `int`): The position to start to
+                print the ``Square``.
+        Raises:
+            TypeError: If ``position`` is not a tuple of 2 integers
+        """
+        return self._Square__position
+
+    @position.setter
+    def position(self, position):
+        if not isinstance(position, tuple):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        else:
+            self._Square__position = position
+
     def my_print(self):
         """Prints a ``Square`` filled with '#'"""
-        if self.size:
-            for i in range(self.size):
-                for j in range(self.size):
-                    print("#", end="")
-                print()
-        else:
-            print()
+        print(self)
