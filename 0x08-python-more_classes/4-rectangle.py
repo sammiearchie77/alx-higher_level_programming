@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-
-"""
+"""Module 4-rectangle
 Defines a Rectangle class.
 """
 
@@ -30,11 +29,12 @@ class Rectangle:
         return rec_str[:-1]
 
     def __repr__(self):
-        """ Return a string representation of a Rectangle instance
+        """Return a string representation of a Rectangle instance
         that is able to recreate a new instance by using eval()
         """
-        return "Rectangle({}, {}".format(self._width, self._height)
-     @property
+        return "Rectangle({}, {})".format(self.__width, self.__height)
+
+    @property
     def width(self):
         """Retrieves the width of a Rectangle instance."""
         return self.__width

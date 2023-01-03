@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""
+"""Module 2-rectangle
 Defines a Rectangle class.
 """
 
@@ -51,16 +51,17 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """ Calculates the area of a Rectangle """
-        result = self._width * self._height
-        return result
+        """Calculates the area of a Rectangle instance
+        Returns:
+            Area of the the rectangle, given by height * width
+        """
+        return self.__width * self.__height
 
     def perimeter(self):
-        """ Calculates the perimeter of a Rectangle instance
-
+        """Calculates the perimeter of a Rectangle instance
         Returns:
-             Perimeter of the Rectangle, given by 2 * (height + width)
+            Perimeter of the rectangle, given by 2 * (height + width)
         """
-        if self._height == 0 or self._width == 0:
+        if self.__height == 0 or self.__width == 0:
             return 0
-        return 2 * (self._width + self._height)
+        return 2 * (self.__width + self.__height)
