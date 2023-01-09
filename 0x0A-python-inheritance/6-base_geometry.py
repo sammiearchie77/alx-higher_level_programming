@@ -2,7 +2,6 @@
 """ a class BaseGeometry (based on 5-base_geometry.py) """
 
 class BaseGeometry:
-
     def area(self):
         """ Raises an Exception
             with the message 
