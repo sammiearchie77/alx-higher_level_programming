@@ -7,7 +7,7 @@ prints the following statistics:
 """
 
 
-def print_stat(size, status_codes):
+def print_stats(size, status_codes):
     """Print accumulated metrics.
     Args:
         size (int): The accumulated read file size.
@@ -23,13 +23,13 @@ if __name__ == "__main__":
 
     size = 0
     status_codes = {}
-    valid_codes = {'200', '301', '400', '401', '403', '404', '405', '500'}
+    valid_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
     count = 0
 
     try:
         for line in sys.stdin:
             if count == 10:
-                print_stat(size, status_codes)
+                print_stats(size, status_codes)
                 count = 1
             else:
                 count += 1

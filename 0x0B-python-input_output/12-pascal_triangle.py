@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Defines a Pascal's Triangle function. """
+"""Defines a Pascal's Triangle function."""
 
 
 def pascal_triangle(n):
@@ -8,7 +8,8 @@ def pascal_triangle(n):
     """
     if n <= 0:
         return []
-    triangles = [1]
+
+    triangles = [[1]]
     while len(triangles) != n:
         tri = triangles[-1]
         tmp = [1]
