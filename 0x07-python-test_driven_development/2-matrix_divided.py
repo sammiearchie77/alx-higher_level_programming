@@ -1,12 +1,10 @@
 #!/usr/bin/python3
-
 """
     Matrix division module
 """
 
 def matrix_divided(matrix, div):
     """ Divides each value of a matrix by a number.
-
     Args:
         matrix: (:obj:`list` of :obj: `list`): The matrix to divide
         div: The divisor.
@@ -18,7 +16,7 @@ def matrix_divided(matrix, div):
                    If `div` is not a number.
         ZeroDivisionError: If `div` is 0
     """
-    if len(matrxi):
+    if len(matrix):
         n = len(matrix[0])
         for row in matrix:
             if n != len(row):
@@ -28,5 +26,4 @@ def matrix_divided(matrix, div):
                 if type(i) not in [int, float]:
                     raise TypeError("matrix must be a matrix\
                             (list of lists) of integers/floats")
-    res = [[round(i/div, 2) for i in row] for row in matrix]
-    return res
+    return  [[round(i/div, 2) for i in row] for row in matrix]
